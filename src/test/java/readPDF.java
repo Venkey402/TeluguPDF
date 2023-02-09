@@ -17,7 +17,7 @@ public class readPDF {
 	{
 		java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/telugu", "root", "root");
 		Statement stmt = (Statement) con.createStatement();		
-		PDDocument doc =PDDocument.load(new File("D:\\Venkat_Personal\\Dict\\Telugu Dictionary_text.pdf"));
+		PDDocument doc =PDDocument.load(new File("D:\\Venkat_Personal\\Dict\\sankar_narayan_dict.pdf"));
 		PDFTextStripper pdftext = new PDFTextStripper();	
 		String str = pdftext.getText(doc);
 		
