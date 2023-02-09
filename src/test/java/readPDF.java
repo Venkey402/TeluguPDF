@@ -25,7 +25,8 @@ public class readPDF {
 		String query ="";
 		for (String splittedStr:splittedStrArr)
 		{
-			if (splittedStr.length()>0 && !(splittedStr.contains("\n")))
+if (splittedStr.length()>0 && !(splittedStr.contains("\n"))&& !(splittedStr.contains("'"))
+		&& !(splittedStr.contains("\\")))
 			{
 //				System.out.println(splittedStr);
 				query = "insert into word values('"+splittedStr+"',' ')";
