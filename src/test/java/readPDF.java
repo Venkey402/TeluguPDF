@@ -15,9 +15,11 @@ public class readPDF {
 	@Test
 	public void read() throws IOException, SQLException
 	{
+		String Finame = "teluguenglishdic0000revp";
+		
 		java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/telugu", "root", "root");
-		Statement stmt = (Statement) con.createStatement();		
-		PDDocument doc =PDDocument.load(new File("D:\\Venkat_Personal\\Dict\\sankar_narayan_dict.pdf"));
+		Statement stmt = (Statement) con.createStatement();				
+		PDDocument doc =PDDocument.load(new File(System.getProperty("user.dir")+"/src/test/resources/"+Finame+".pdf"));
 		PDFTextStripper pdftext = new PDFTextStripper();	
 		String str = pdftext.getText(doc);
 		
@@ -29,7 +31,7 @@ if (splittedStr.length()>0 && !(splittedStr.contains("\n"))&& !(splittedStr.cont
 		&& !(splittedStr.contains("\\")))
 			{
 //				System.out.println(splittedStr);
-				query = "insert into word values('"+splittedStr+"',' ')";
+				query = "insert into words values('"+splittedStr+"')";
 				System.out.println(query);			
 				stmt.execute(query);
 			}
