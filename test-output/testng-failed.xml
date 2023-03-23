@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="readPDF">
+      <class name="readFromPDF">
         <methods>
-          <include name="read"/>
+          <include name="insertPDFtoDB"/>
         </methods>
-      </class> <!-- readPDF -->
+      </class> <!-- readFromPDF -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
