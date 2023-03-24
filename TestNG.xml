@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="TeluguPDF" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="TeluguPDF" verbose="2">
+    <classes>
+      <class name="read.readFromPDF">
+        <methods>
+          <include name="readfromweb"/>
+        </methods>
+      </class> <!-- Demo -->
+    </classes>
+  </test> <!-- Default test -->
+</suite> <!-- Default suite -->
