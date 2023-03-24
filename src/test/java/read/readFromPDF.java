@@ -61,13 +61,13 @@ public class readFromPDF {
 
 		for(String url:url_pages)
 		{
-			driver.get("https://www.andhrajyothy.com/"+url);
+			String entireURL = "https://www.andhrajyothy.com/"+url;
+			driver.get(entireURL);
+			System.out.println(entireURL);
 			urls_webelements = driver.findElements(By.xpath("//a[contains(@href,'.html')]"));
 			urls_string = new  ArrayList<String>();
-			loopthroughWebPages(urls_webelements,urls_string,stmt);
-			
-		}
-		
+			loopthroughWebPages(urls_webelements,urls_string,stmt);			
+		}		
 	}
 
 	public void loopthroughWebPages(List<WebElement> urls_webelements,ArrayList<String> urls_string,Statement stmt) throws SQLException
@@ -82,15 +82,12 @@ public class readFromPDF {
 			List<WebElement> bodyContainsData = driver.findElements(By.xpath("//body//*"));
 			if(bodyContainsData.size()>0)
 			{
-			String textFrpmWeb = driver.findElement(By.xpath("//*[@class='articleBodyCont']")).getText();
-
-			//String textFrpmWeb = driver.findElement(By.xpath("//div[@class='two-col-left-block box-shadow telugu_uni_body fullstory']")).getText();
-			System.out.println(textFrpmWeb);
-			paragraphToWords(textFrpmWeb,stmt);
+				String textFrpmWeb = driver.findElement(By.xpath("//*[@class='articleBodyCont']")).getText();
+				System.out.println(textFrpmWeb);
+				paragraphToWords(textFrpmWeb,stmt);
 			}
 		}
 	}
-
 
 	public String readPDF(String filename) throws IOException
 	{
@@ -106,6 +103,7 @@ public class readFromPDF {
 		Statement stmt = (Statement) con.createStatement();	
 		return stmt;
 	}
+	
 	public void paragraphToWords(String textFrpmPDF,Statement stmt) throws SQLException
 	{
 		String[] splittedStrArr =textFrpmPDF.split(" ");
@@ -122,10 +120,4 @@ public class readFromPDF {
 			}
 		}
 	}
-
-//	public void navigateAndrajyothi()
-//	{
-//		driver.findElement(By.xpath(""))
-//	}
-
 }
