@@ -22,10 +22,10 @@ import com.mysql.jdbc.Statement;
 public class readFromPDF {
 
 	Statement stmt;
-
 	String userdir ;
-
 	WebDriver driver ;
+	List<WebElement> urls_webelements;
+	ArrayList<String> urls_string;
 
 	@Test
 	public void insertPDFtoDB() throws IOException, SQLException
@@ -46,11 +46,32 @@ public class readFromPDF {
 		System.setProperty("webdriver.chrome.driver", userdir + "/src/test/resources/chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
-		DesiredCapabilities capabilities = new DesiredCapabilities();
-		capabilities.setCapability("acceptInsecureCerts", "true");
-		driver.get("https://www.andhrajyothy.com/andhra-pradesh");
-		List<WebElement> urls_webelements = driver.findElements(By.xpath("//a[contains(@href,'.html')]"));
-		ArrayList<String> urls_string = new  ArrayList<String>();
+		ArrayList<String> url_pages = new ArrayList<String>();
+		url_pages.add("national");
+		url_pages.add("andhra-pradesh");
+		url_pages.add("sports");
+		url_pages.add("navya");
+		url_pages.add("editorial");
+		url_pages.add("business");
+		url_pages.add("politics");
+		url_pages.add("vantalu");
+		url_pages.add("health");
+		url_pages.add("education");
+		url_pages.add("crime");
+
+		for(String url:url_pages)
+		{
+			driver.get("https://www.andhrajyothy.com/"+url);
+			urls_webelements = driver.findElements(By.xpath("//a[contains(@href,'.html')]"));
+			urls_string = new  ArrayList<String>();
+			loopthroughWebPages(urls_webelements,urls_string,stmt);
+			
+		}
+		
+	}
+
+	public void loopthroughWebPages(List<WebElement> urls_webelements,ArrayList<String> urls_string,Statement stmt) throws SQLException
+	{
 		for(WebElement we:urls_webelements)
 		{
 			urls_string.add(we.getAttribute("href"));
@@ -69,7 +90,6 @@ public class readFromPDF {
 			}
 		}
 	}
-
 
 
 	public String readPDF(String filename) throws IOException
