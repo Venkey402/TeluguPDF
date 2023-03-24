@@ -58,7 +58,7 @@ public class readFromPDF {
 		for(String st:urls_string)
 		{
 			driver.get(st);
-			List<WebElement> bodyContainsData = driver.findElements(By.xpath("//body//"));
+			List<WebElement> bodyContainsData = driver.findElements(By.xpath("//body//*"));
 			if(bodyContainsData.size()>0)
 			{
 			String textFrpmWeb = driver.findElement(By.xpath("//*[@class='articleBodyCont']")).getText();
