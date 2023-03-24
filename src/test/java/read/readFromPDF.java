@@ -58,11 +58,15 @@ public class readFromPDF {
 		for(String st:urls_string)
 		{
 			driver.get(st);
+			List<WebElement> bodyContainsData = driver.findElements(By.xpath("//body//"));
+			if(bodyContainsData.size()>0)
+			{
 			String textFrpmWeb = driver.findElement(By.xpath("//*[@class='articleBodyCont']")).getText();
 
 			//String textFrpmWeb = driver.findElement(By.xpath("//div[@class='two-col-left-block box-shadow telugu_uni_body fullstory']")).getText();
 			System.out.println(textFrpmWeb);
 			paragraphToWords(textFrpmWeb,stmt);
+			}
 		}
 	}
 
