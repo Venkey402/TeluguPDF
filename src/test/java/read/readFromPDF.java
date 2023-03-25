@@ -269,8 +269,8 @@ public class readFromPDF {
 			{
 				//********* System.out.println(splittedStr);
 				query = "insert into words values('"+splitted_word+"')";
-				System.out.println(query);			
 				stmt.execute(query);
+				System.out.println("inserted "+splitted_word);		
 			}
 		}
 //		for (String splitted_sentese:splitted_sentenses)
