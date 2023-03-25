@@ -259,7 +259,7 @@ public class readFromPDF {
 	public void paragraphToWords(String textFrpmPDF,Statement stmt) throws SQLException
 	{
 		String[] splitted_words =textFrpmPDF.split(" ");
-//		String[] splitted_sentenses =textFrpmPDF.split(".");
+		String[] splitted_sentences =textFrpmPDF.split("//. ");
 		String query ="";
 
 		for (String splitted_word:splitted_words)
@@ -273,14 +273,14 @@ public class readFromPDF {
 				System.out.println("inserted "+splitted_word);		
 			}
 		}
-//		for (String splitted_sentese:splitted_sentenses)
-//		{
-//			if (splitted_sentese.length()>0)
-//			{
-//				query = "insert into sentences values('"+splitted_sentese+"')";
-//				System.out.println("The sentense is : "+splitted_sentese);			
-//				stmt.execute(query);
-//			}
-//		}
+		for (String splitted_sentence:splitted_sentences)
+		{
+			if (splitted_sentence.length()>0)
+			{
+				query = "insert into sentences values('"+splitted_sentence+"')";
+				System.out.println("The sentense is : "+splitted_sentence);			
+				stmt.execute(query);
+			}
+		}
 	}
 }
