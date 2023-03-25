@@ -5,7 +5,17 @@
     <classes>
       <class name="read.readFromPDF">
         <methods>
-          <include name="readfromweb"/>
+          <include name="readfromweb_AP"/>
+          <include name="readfromweb_national"/>
+          <include name="readfromweb_sports"/>
+          <include name="readfromweb_navya"/>
+          <include name="readfromweb_editorial"/>
+          <include name="readfromweb_business"/>
+          <include name="readfromweb_politics"/>
+          <include name="readfromweb_vantalu"/>
+          <include name="readfromweb_health"/>
+          <include name="readfromweb_education"/>
+          <include name="readfromweb_crime"/>        
         </methods>
       </class> <!-- Demo -->
     </classes>
