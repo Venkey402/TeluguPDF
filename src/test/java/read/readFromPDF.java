@@ -30,10 +30,10 @@ public class readFromPDF {
 	@Test
 	public void insertPDFtoDB() throws IOException, SQLException
 	{
-		String filename = "teluguenglishdic0000revp";
+		String filename = "Telugu-english-Dictionary_text";
 
 		String textFrpmPDF =readPDF(filename);
-		Statement stmt = createDBconnection();
+		stmt = createDBconnection();
 		paragraphToWords(textFrpmPDF,stmt);
 	}
 
@@ -163,18 +163,8 @@ public class readFromPDF {
 	public void paragraphToWords(String textFrpmPDF,Statement stmt) throws SQLException
 	{
 		String[] splitted_words =textFrpmPDF.split(" ");
-		String[] splitted_sentences =textFrpmPDF.split("//. ");
 		String query ="";
-		for (String splitted_sentence:splitted_sentences)
-		{
-			if (splitted_sentence.length()>0)
-			{
-				query = "insert into sentences values('"+splitted_sentence+"')";
-				System.out.println("The sentense is : "+splitted_sentence);			
-				stmt.execute(query);
-			}
-		}
-
+		
 		for (String splitted_word:splitted_words)
 		{
 			if (splitted_word.length()>0 && !(splitted_word.contains("\n"))&& !(splitted_word.contains("'"))
@@ -184,6 +174,23 @@ public class readFromPDF {
 				query = "insert into words values('"+splitted_word+"')";
 				stmt.execute(query);
 				System.out.println("inserted "+splitted_word);		
+			}
+		}
+				
+	}
+	
+	public void paragraphToSentences(String textFrpmPDF,Statement stmt) throws SQLException
+	{
+		String[] splitted_sentences =textFrpmPDF.split("//. ");
+		String query ="";
+				
+		for (String splitted_sentence:splitted_sentences)
+		{
+			if (splitted_sentence.length()>0)
+			{
+				query = "insert into sentences values('"+splitted_sentence+"')";
+				System.out.println("The sentense is : "+splitted_sentence);			
+				stmt.execute(query);
 			}
 		}
 		
