@@ -39,37 +39,189 @@ public class readFromPDF {
 
 	
 	@Test
-	public void readfromweb() throws AWTException, InterruptedException, IOException, SQLException
+	public void readfromweb_AP() throws AWTException, InterruptedException, IOException, SQLException
 	{
+		String entireURL = "https://www.andhrajyothy.com/andhra-pradesh";
 		stmt = createDBconnection();
 		userdir = System.getProperty("user.dir");
 		System.setProperty("webdriver.chrome.driver", userdir + "/src/test/resources/chromedriver.exe");
 		driver = new ChromeDriver();
-		driver.manage().window().maximize();
-		ArrayList<String> url_pages = new ArrayList<String>();
-		url_pages.add("national");
-		url_pages.add("andhra-pradesh");
-		url_pages.add("sports");
-		url_pages.add("navya");
-		url_pages.add("editorial");
-		url_pages.add("business");
-		url_pages.add("politics");
-		url_pages.add("vantalu");
-		url_pages.add("health");
-		url_pages.add("education");
-		url_pages.add("crime");
-
-		for(String url:url_pages)
-		{
-			String entireURL = "https://www.andhrajyothy.com/"+url;
-			driver.get(entireURL);
-			System.out.println(entireURL);
-			urls_webelements = driver.findElements(By.xpath("//a[contains(@href,'.html')]"));
-			urls_string = new  ArrayList<String>();
-			loopthroughWebPages(urls_webelements,urls_string,stmt);			
-		}		
+		driver.manage().window().maximize();		
+		
+		driver.get(entireURL);
+		System.out.println(entireURL);
+		List<WebElement> urls_webelements = driver.findElements(By.xpath("//a[contains(@href,'.html')]"));
+		ArrayList<String> urls_string = new  ArrayList<String>();
+		loopthroughWebPages(urls_webelements,urls_string,stmt);			
 	}
 
+	@Test
+	public void readfromweb_national() throws AWTException, InterruptedException, IOException, SQLException
+	{
+		String entireURL = "https://www.andhrajyothy.com/national";
+		stmt = createDBconnection();
+		userdir = System.getProperty("user.dir");
+		System.setProperty("webdriver.chrome.driver", userdir + "/src/test/resources/chromedriver.exe");
+		driver = new ChromeDriver();
+		driver.manage().window().maximize();		
+		
+		driver.get(entireURL);
+		System.out.println(entireURL);
+		List<WebElement> urls_webelements = driver.findElements(By.xpath("//a[contains(@href,'.html')]"));
+		ArrayList<String> urls_string = new  ArrayList<String>();
+		loopthroughWebPages(urls_webelements,urls_string,stmt);		
+	}
+	@Test
+	public void readfromweb_sports() throws AWTException, InterruptedException, IOException, SQLException
+	{
+		String entireURL = "https://www.andhrajyothy.com/sports";
+		stmt = createDBconnection();
+		userdir = System.getProperty("user.dir");
+		System.setProperty("webdriver.chrome.driver", userdir + "/src/test/resources/chromedriver.exe");
+		driver = new ChromeDriver();
+		driver.manage().window().maximize();		
+		
+		driver.get(entireURL);
+		System.out.println(entireURL);
+		List<WebElement> urls_webelements = driver.findElements(By.xpath("//a[contains(@href,'.html')]"));
+		ArrayList<String> urls_string = new  ArrayList<String>();
+		loopthroughWebPages(urls_webelements,urls_string,stmt);				
+	}
+	@Test
+	public void readfromweb_navya() throws AWTException, InterruptedException, IOException, SQLException
+	{
+		String entireURL = "https://www.andhrajyothy.com/navya";
+		stmt = createDBconnection();
+		userdir = System.getProperty("user.dir");
+		System.setProperty("webdriver.chrome.driver", userdir + "/src/test/resources/chromedriver.exe");
+		driver = new ChromeDriver();
+		driver.manage().window().maximize();		
+		
+		driver.get(entireURL);
+		System.out.println(entireURL);
+		List<WebElement> urls_webelements = driver.findElements(By.xpath("//a[contains(@href,'.html')]"));
+		ArrayList<String> urls_string = new  ArrayList<String>();
+		loopthroughWebPages(urls_webelements,urls_string,stmt);			
+	}
+	
+	@Test
+	public void readfromweb_editorial() throws AWTException, InterruptedException, IOException, SQLException
+	{
+		String entireURL = "https://www.andhrajyothy.com/editorial";
+		stmt = createDBconnection();
+		userdir = System.getProperty("user.dir");
+		System.setProperty("webdriver.chrome.driver", userdir + "/src/test/resources/chromedriver.exe");
+		driver = new ChromeDriver();
+		driver.manage().window().maximize();		
+		
+		driver.get(entireURL);
+		System.out.println(entireURL);
+		List<WebElement> urls_webelements = driver.findElements(By.xpath("//a[contains(@href,'.html')]"));
+		ArrayList<String> urls_string = new  ArrayList<String>();
+		loopthroughWebPages(urls_webelements,urls_string,stmt);			
+	}
+	
+	@Test
+	public void readfromweb_business() throws AWTException, InterruptedException, IOException, SQLException
+	{
+		String entireURL = "https://www.andhrajyothy.com/business";
+		stmt = createDBconnection();
+		userdir = System.getProperty("user.dir");
+		System.setProperty("webdriver.chrome.driver", userdir + "/src/test/resources/chromedriver.exe");
+		driver = new ChromeDriver();
+		driver.manage().window().maximize();		
+		
+		driver.get(entireURL);
+		System.out.println(entireURL);
+		List<WebElement> urls_webelements = driver.findElements(By.xpath("//a[contains(@href,'.html')]"));
+		ArrayList<String> urls_string = new  ArrayList<String>();
+		loopthroughWebPages(urls_webelements,urls_string,stmt);				
+	}
+	@Test
+	public void readfromweb_politics() throws AWTException, InterruptedException, IOException, SQLException
+	{
+		String entireURL = "https://www.andhrajyothy.com/politics";
+		stmt = createDBconnection();
+		userdir = System.getProperty("user.dir");
+		System.setProperty("webdriver.chrome.driver", userdir + "/src/test/resources/chromedriver.exe");
+		driver = new ChromeDriver();
+		driver.manage().window().maximize();		
+		
+		driver.get(entireURL);
+		System.out.println(entireURL);
+		List<WebElement> urls_webelements = driver.findElements(By.xpath("//a[contains(@href,'.html')]"));
+		ArrayList<String> urls_string = new  ArrayList<String>();
+		loopthroughWebPages(urls_webelements,urls_string,stmt);			
+	}
+	
+	@Test
+	public void readfromweb_vantalu() throws AWTException, InterruptedException, IOException, SQLException
+	{
+		String entireURL = "https://www.andhrajyothy.com/vantalu";
+		stmt = createDBconnection();
+		userdir = System.getProperty("user.dir");
+		System.setProperty("webdriver.chrome.driver", userdir + "/src/test/resources/chromedriver.exe");
+		driver = new ChromeDriver();
+		driver.manage().window().maximize();		
+		
+		driver.get(entireURL);
+		System.out.println(entireURL);
+		List<WebElement> urls_webelements = driver.findElements(By.xpath("//a[contains(@href,'.html')]"));
+		ArrayList<String> urls_string = new  ArrayList<String>();
+		loopthroughWebPages(urls_webelements,urls_string,stmt);		
+	}
+	
+	@Test
+	public void readfromweb_health() throws AWTException, InterruptedException, IOException, SQLException
+	{
+		String entireURL = "https://www.andhrajyothy.com/health";
+		stmt = createDBconnection();
+		userdir = System.getProperty("user.dir");
+		System.setProperty("webdriver.chrome.driver", userdir + "/src/test/resources/chromedriver.exe");
+		driver = new ChromeDriver();
+		driver.manage().window().maximize();		
+		
+		driver.get(entireURL);
+		System.out.println(entireURL);
+		List<WebElement> urls_webelements = driver.findElements(By.xpath("//a[contains(@href,'.html')]"));
+		ArrayList<String> urls_string = new  ArrayList<String>();
+		loopthroughWebPages(urls_webelements,urls_string,stmt);			
+	}
+	
+	@Test
+	public void readfromweb_education() throws AWTException, InterruptedException, IOException, SQLException
+	{
+		String entireURL = "https://www.andhrajyothy.com/education";
+		stmt = createDBconnection();
+		userdir = System.getProperty("user.dir");
+		System.setProperty("webdriver.chrome.driver", userdir + "/src/test/resources/chromedriver.exe");
+		driver = new ChromeDriver();
+		driver.manage().window().maximize();		
+		
+		driver.get(entireURL);
+		System.out.println(entireURL);
+		List<WebElement> urls_webelements = driver.findElements(By.xpath("//a[contains(@href,'.html')]"));
+		ArrayList<String> urls_string = new  ArrayList<String>();
+		loopthroughWebPages(urls_webelements,urls_string,stmt);			
+	}
+	
+	@Test
+	public void readfromweb_crime() throws AWTException, InterruptedException, IOException, SQLException
+	{
+		String entireURL = "https://www.andhrajyothy.com/crime";
+		stmt = createDBconnection();
+		userdir = System.getProperty("user.dir");
+		System.setProperty("webdriver.chrome.driver", userdir + "/src/test/resources/chromedriver.exe");
+		driver = new ChromeDriver();
+		driver.manage().window().maximize();		
+		
+		driver.get(entireURL);
+		System.out.println(entireURL);
+		List<WebElement> urls_webelements = driver.findElements(By.xpath("//a[contains(@href,'.html')]"));
+		ArrayList<String> urls_string = new  ArrayList<String>();
+		loopthroughWebPages(urls_webelements,urls_string,stmt);				
+	}
+	
 	public void loopthroughWebPages(List<WebElement> urls_webelements,ArrayList<String> urls_string,Statement stmt) throws SQLException
 	{
 		for(WebElement we:urls_webelements)
@@ -106,18 +258,29 @@ public class readFromPDF {
 	
 	public void paragraphToWords(String textFrpmPDF,Statement stmt) throws SQLException
 	{
-		String[] splittedStrArr =textFrpmPDF.split(" ");
+		String[] splitted_words =textFrpmPDF.split(" ");
+//		String[] splitted_sentenses =textFrpmPDF.split(".");
 		String query ="";
-		for (String splittedStr:splittedStrArr)
+
+		for (String splitted_word:splitted_words)
 		{
-			if (splittedStr.length()>0 && !(splittedStr.contains("\n"))&& !(splittedStr.contains("'"))
-					&& !(splittedStr.contains("\\")))
+			if (splitted_word.length()>0 && !(splitted_word.contains("\n"))&& !(splitted_word.contains("'"))
+					&& !(splitted_word.contains("\\")))
 			{
 				//********* System.out.println(splittedStr);
-				query = "insert into words values('"+splittedStr+"')";
+				query = "insert into words values('"+splitted_word+"')";
 				System.out.println(query);			
 				stmt.execute(query);
 			}
 		}
+//		for (String splitted_sentese:splitted_sentenses)
+//		{
+//			if (splitted_sentese.length()>0)
+//			{
+//				query = "insert into sentences values('"+splitted_sentese+"')";
+//				System.out.println("The sentense is : "+splitted_sentese);			
+//				stmt.execute(query);
+//			}
+//		}
 	}
 }
