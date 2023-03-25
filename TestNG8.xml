@@ -5,7 +5,9 @@
     <classes>
       <class name="read.readFromPDF">
         <methods>
-          <include name="readfromweb_AP"/>    
+        
+          <include name="readfromweb_vantalu"/>
+               
         </methods>
       </class> <!-- Demo -->
     </classes>
