@@ -2,16 +2,16 @@
 <testng-results ignored="11" total="12" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-03-25T06:59:11 UTC" name="Default suite" finished-at="2023-03-25T06:59:14 UTC" duration-ms="2551">
+  <suite started-at="2023-03-25T15:26:54 UTC" name="TeluguPDF" finished-at="2023-03-25T15:26:56 UTC" duration-ms="2142">
     <groups>
     </groups>
-    <test started-at="2023-03-25T06:59:11 UTC" name="Default test" finished-at="2023-03-25T06:59:14 UTC" duration-ms="2551">
+    <test started-at="2023-03-25T15:26:54 UTC" name="TeluguPDF" finished-at="2023-03-25T15:26:56 UTC" duration-ms="2142">
       <class name="read.readFromPDF">
-        <test-method signature="readfromweb_crime()[pri:0, instance:read.readFromPDF@3fb1549b]" started-at="2023-03-25T06:59:11 UTC" name="readfromweb_crime" finished-at="2023-03-25T06:59:14 UTC" duration-ms="2517" status="PASS">
+        <test-method signature="readfromweb_health()[pri:0, instance:read.readFromPDF@2b48a640]" started-at="2023-03-25T15:26:54 UTC" name="readfromweb_health" finished-at="2023-03-25T15:26:56 UTC" duration-ms="2111" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- readfromweb_crime -->
+        </test-method> <!-- readfromweb_health -->
       </class> <!-- read.readFromPDF -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+    </test> <!-- TeluguPDF -->
+  </suite> <!-- TeluguPDF -->
 </testng-results>

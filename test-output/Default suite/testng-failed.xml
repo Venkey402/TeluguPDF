@@ -5,7 +5,7 @@
     <classes>
       <class name="read.readFromPDF">
         <methods>
-          <include name="readfromweb_education"/>
+          <include name="readfromweb_health"/>
         </methods>
       </class> <!-- read.readFromPDF -->
     </classes>

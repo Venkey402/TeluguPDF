@@ -5,10 +5,8 @@
     <classes>
       <class name="read.readFromPDF">
         <methods>
-      
-          <include name="readfromweb_national"/>
-            
-        </methods>
+			<include name="readfromweb_national"/>
+		</methods>
       </class> <!-- Demo -->
     </classes>
   </test> <!-- Default test -->

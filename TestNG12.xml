@@ -4,8 +4,7 @@
   <test thread-count="5" name="TeluguPDF" verbose="2">
     <classes>
       <class name="read.readFromPDF">
-        <methods>
-          
+        <methods>          
           <include name="readfromweb_crime"/>        
         </methods>
       </class> <!-- Demo -->

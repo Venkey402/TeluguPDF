@@ -108,7 +108,7 @@ public class readFromPDF {
 	@Test
 	public void readfromweb_crime() throws AWTException, InterruptedException, IOException, SQLException
 	{
-		String entireURL = "https://www.andhrajyothy.com";			
+		String entireURL = "https://www.andhrajyothy.com/crime";			
 		readfromweb(entireURL);
 	}
 	public void readfromweb(String entireURL) throws AWTException, InterruptedException, IOException, SQLException
