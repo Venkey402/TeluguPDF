@@ -30,7 +30,7 @@ public class readFromPDF {
 	@Test
 	public void insertPDFtoDB() throws IOException, SQLException
 	{
-		String filename = "Telugu-english-Dictionary_text";
+		String filename = "sankar_narayan_dict";
 
 		String textFrpmPDF =readPDF(filename);
 		stmt = createDBconnection();
@@ -181,7 +181,7 @@ public class readFromPDF {
 	
 	public void paragraphToSentences(String textFrpmPDF,Statement stmt) throws SQLException
 	{
-		String[] splitted_sentences =textFrpmPDF.split("//. ");
+		String[] splitted_sentences =textFrpmPDF.split("//.");
 		String query ="";
 				
 		for (String splitted_sentence:splitted_sentences)
