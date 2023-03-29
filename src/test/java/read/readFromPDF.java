@@ -34,7 +34,7 @@ public class readFromPDF {
 	{
 		String entireURL = "http://www.telugunighantuvu.org/";
 		openBrowser(entireURL);		
-		ResultSet  rsltset =stmt.executeQuery("select word from Distinct_telugu_words_NoJunk_view where word like 'కడుపు%'");
+		ResultSet  rsltset =stmt.executeQuery("select word from Distinct_telugu_words_NoJunk_view");
 
 		while (rsltset.next()) {
 			driver.findElement(By.id("SearchControl_txtAutoComplete")).clear();
