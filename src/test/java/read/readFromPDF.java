@@ -31,8 +31,8 @@ public class readFromPDF {
 	@Test
 	public void testfun()
 	{
-		String str = "('కష్టాత్ముఁడు'";	
-		System.out.print(str.replace("'", ""));
+		String str = "ఒకతె స.ఏ.(ఇది 'ఒక' శబ్దము యొక్క మహత్యర్థకరూపము.)";	
+		System.out.println(str.replace("'", ""));
 	}
 
 	
@@ -41,10 +41,11 @@ public class readFromPDF {
 	{
 		String entireURL = "http://www.telugunighantuvu.org/";
 		openBrowser(entireURL);	
-		String lowerlimit="8539";
-		String upperlimit="10000";
+		String lowerlimit="22608";
+		String upperlimit="30000";
 		
 		String final_Query = "select word from distinct_telugu_words_nojunk_table where ID>"+lowerlimit+" and  ID<="+upperlimit;
+		
 		System.out.println(final_Query);
 		ResultSet resultset =stmt.executeQuery(final_Query);
 
@@ -76,11 +77,11 @@ public class readFromPDF {
 
 				for (int i=0;i<wi.size();i++)
 				{
-					String telugunigantuvu_word =wi.get(i).getText();
-					String telugunigantuvu_wordMeaning =m.get(i).getText().replace("'", "").replaceAll("-", "");
+					String telugunigantuvu_word =wi.get(i).getText().replace("'", "").replace("-", "").replace(";","").replace("(", "").replace(")", "");
+					String telugunigantuvu_wordMeaning =m.get(i).getText().replace("'", "").replace("-", "").replace(";","").replace("(", "").replace(")", "");
 
 					String query = "insert into word_meaning values('"+telugunigantuvu_word+"','"+telugunigantuvu_wordMeaning+"')";
-					//System.out.println(query);
+					System.out.println(query);
 					stmt.execute(query);
 					System.out.println(telugunigantuvu_word);
 				}
