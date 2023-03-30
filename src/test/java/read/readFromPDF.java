@@ -40,8 +40,13 @@ public class readFromPDF {
 	public void readfromTeluguNigantuvu() throws AWTException, InterruptedException, IOException, SQLException
 	{
 		String entireURL = "http://www.telugunighantuvu.org/";
-		openBrowser(entireURL);		
-		ResultSet  resultset =stmt.executeQuery("select word from distinct_telugu_words_nojunk_table where id<=1000");
+		openBrowser(entireURL);	
+		String lowerlimit="8539";
+		String upperlimit="10000";
+		
+		String final_Query = "select word from distinct_telugu_words_nojunk_table where ID>"+lowerlimit+" and  ID<="+upperlimit;
+		System.out.println(final_Query);
+		ResultSet resultset =stmt.executeQuery(final_Query);
 
 		List<String> queryWord  = new ArrayList<String> ();
 		while (resultset.next()) {			
@@ -72,7 +77,7 @@ public class readFromPDF {
 				for (int i=0;i<wi.size();i++)
 				{
 					String telugunigantuvu_word =wi.get(i).getText();
-					String telugunigantuvu_wordMeaning =m.get(i).getText().replace("'", "");
+					String telugunigantuvu_wordMeaning =m.get(i).getText().replace("'", "").replaceAll("-", "");
 
 					String query = "insert into word_meaning values('"+telugunigantuvu_word+"','"+telugunigantuvu_wordMeaning+"')";
 					//System.out.println(query);
