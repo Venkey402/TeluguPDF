@@ -27,24 +27,44 @@ public class readFromPDF {
 	WebDriver driver ;
 	List<WebElement> urls_webelements;
 	ArrayList<String> urls_string;
+	
+	@Test
+	public void testfun()
+	{
+		String str = "('కష్టాత్ముఁడు'";	
+		System.out.print(str.replace("'", ""));
+	}
 
-
+	
 	@Test
 	public void readfromTeluguNigantuvu() throws AWTException, InterruptedException, IOException, SQLException
 	{
 		String entireURL = "http://www.telugunighantuvu.org/";
 		openBrowser(entireURL);		
-		ResultSet  rsltset =stmt.executeQuery("select word from Distinct_telugu_words_NoJunk_view");
+		ResultSet  resultset =stmt.executeQuery("select word from distinct_telugu_words_nojunk_table where id<=1000");
 
-		while (rsltset.next()) {
+		List<String> queryWord  = new ArrayList<String> ();
+		while (resultset.next()) {			
+			queryWord.add(resultset.getString("word"));
+		}
+
+		for(String qw:queryWord) {
 			driver.findElement(By.id("SearchControl_txtAutoComplete")).clear();
-			driver.findElement(By.id("SearchControl_txtAutoComplete")).sendKeys(rsltset.getString("word"));
+			String sendWord = qw;
+			System.out.println(sendWord);
+			driver.findElement(By.id("SearchControl_txtAutoComplete")).sendKeys(sendWord);
 			driver.findElement(By.id("SearchControl_rdlist_3")).click();
 			driver.findElement(By.id("SearchControl_btnSearch")).click();
-			List<WebElement> next =driver.findElements(By.xpath("//a[contains(@title,' Next Page ')]"));
+			List<WebElement> pageCount=driver.findElements(By.xpath("//td[@class='PagerInfoCell']"));
+			int pageCountInt=1;
+			if(pageCount.size()>0)
+			{
+				String pageNumbtxt = driver.findElement(By.xpath("//td[@class='PagerInfoCell']")).getText();
+				String[] pageNumbStr=pageNumbtxt.split(" ");
+				pageCountInt=Integer.parseInt(pageNumbStr[pageNumbStr.length-1]);  
+			}
 
-			System.out.println("no.of Next" + next.size());
-			while (next.size()>0)
+			for (int j=0;j<pageCountInt;j++)
 			{
 				List<WebElement> wi =driver.findElements(By.className("wi"));
 				List<WebElement> m =driver.findElements(By.className("m"));
@@ -52,10 +72,10 @@ public class readFromPDF {
 				for (int i=0;i<wi.size();i++)
 				{
 					String telugunigantuvu_word =wi.get(i).getText();
-					String telugunigantuvu_wordMeaning =m.get(i).getText();
+					String telugunigantuvu_wordMeaning =m.get(i).getText().replace("'", "");
 
 					String query = "insert into word_meaning values('"+telugunigantuvu_word+"','"+telugunigantuvu_wordMeaning+"')";
-					System.out.println(query);
+					//System.out.println(query);
 					stmt.execute(query);
 					System.out.println(telugunigantuvu_word);
 				}
