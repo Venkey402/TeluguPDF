@@ -41,8 +41,8 @@ public class readFromPDF {
 	{
 		String entireURL = "http://www.telugunighantuvu.org/";
 		openBrowser(entireURL);	
-		String lowerlimit="22608";
-		String upperlimit="30000";
+		String lowerlimit="24485";
+		String upperlimit="40000";
 		
 		String final_Query = "select word from distinct_telugu_words_nojunk_table where ID>"+lowerlimit+" and  ID<="+upperlimit;
 		
@@ -77,8 +77,8 @@ public class readFromPDF {
 
 				for (int i=0;i<wi.size();i++)
 				{
-					String telugunigantuvu_word =wi.get(i).getText().replace("'", "").replace("-", "").replace(";","").replace("(", "").replace(")", "");
-					String telugunigantuvu_wordMeaning =m.get(i).getText().replace("'", "").replace("-", "").replace(";","").replace("(", "").replace(")", "");
+					String telugunigantuvu_word =wi.get(i).getText().replace("'", "").replace("-", "").replace(";","").replace("\\", "");
+					String telugunigantuvu_wordMeaning =m.get(i).getText().replace("'", "").replace("-", "").replace(";","").replace("\\", "");
 
 					String query = "insert into word_meaning values('"+telugunigantuvu_word+"','"+telugunigantuvu_wordMeaning+"')";
 					System.out.println(query);
