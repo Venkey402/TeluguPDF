@@ -41,8 +41,8 @@ public class readFromPDF {
 	{
 		String entireURL = "http://www.telugunighantuvu.org/";
 		openBrowser(entireURL);	
-		String lowerlimit="24485";
-		String upperlimit="40000";
+		String lowerlimit="40001";
+		String upperlimit="60000";
 		
 		String final_Query = "select word from distinct_telugu_words_nojunk_table where ID>"+lowerlimit+" and  ID<="+upperlimit;
 		
