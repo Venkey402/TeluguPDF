@@ -41,8 +41,8 @@ public class readFromPDF {
 	{
 		String entireURL = "http://www.telugunighantuvu.org/";
 		openBrowser(entireURL);	
-		String lowerlimit="40001";
-		String upperlimit="60000";
+		String lowerlimit="110107";
+		String upperlimit="160000";
 		
 		String final_Query = "select word from distinct_telugu_words_nojunk_table where ID>"+lowerlimit+" and  ID<="+upperlimit;
 		
@@ -58,8 +58,8 @@ public class readFromPDF {
 			driver.findElement(By.id("SearchControl_txtAutoComplete")).clear();
 			String sendWord = qw;
 			System.out.println(sendWord);
-			driver.findElement(By.id("SearchControl_txtAutoComplete")).sendKeys(sendWord);
 			driver.findElement(By.id("SearchControl_rdlist_3")).click();
+			driver.findElement(By.id("SearchControl_txtAutoComplete")).sendKeys(sendWord);			
 			driver.findElement(By.id("SearchControl_btnSearch")).click();
 			List<WebElement> pageCount=driver.findElements(By.xpath("//td[@class='PagerInfoCell']"));
 			int pageCountInt=1;
